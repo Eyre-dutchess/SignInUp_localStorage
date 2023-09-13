@@ -1,0 +1,252 @@
+@use "sass:math";
+
+.infor-section{
+    width: 100%;
+    height: calc(100% + 5em);
+    position: absolute;
+    top: -5em;
+    background:$clr-linear-1;
+    transform: scale(0, 0);
+    transform-origin: right;
+    padding-block: 3em;
+    overflow: hidden;
+    
+    .infor-container{
+        width: 80%;
+        max-width: 350px;
+        height: 100%;
+        margin-inline: auto;
+        box-shadow: $box-1;
+        border-radius: 5px;
+        padding-inline: 1em;
+        position: relative;
+        perspective: 1000px;
+
+        h2{
+            font-size: $fs-head;
+            color: $clr-dark-700;
+            text-align: center;
+            transform: translateY(-50%);
+            text-decoration: underline;
+            text-underline-offset: 0.4em;
+        }
+
+       
+        .sign-form{
+            margin-block: 1em 2em;
+            display: grid;
+            gap: 1em;
+            &>*{
+                display: flex;
+                flex-direction: row;
+                white-space: nowrap;
+                gap: 0.5em;
+                position: relative;
+                // &:focus-within input{
+                //     opacity: 1;
+                // }
+            }
+            .user-name .error-span{
+                left: 15em;
+                top: -45%;
+            }
+            
+            .password .error-span{
+                left: 12em;
+                top: -45%;
+            }
+            .first-name .error-span{
+                left: 13em;
+                top: -45%;
+            }
+            .last-name .error-span{
+                left: 13em;
+                top: -45%;
+            }
+            
+            input{
+                width:100%;
+                border: none;
+                outline: none;
+                box-shadow: $box-1;
+                border-radius: 5px;
+                padding-left: 1em;
+                
+            }
+        }
+        .signin-link{
+            display: flex;
+            flex-direction: row;
+            font-size: $fs-remark-1;
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+            a{
+                text-underline-offset: 0.3em;
+                color: $clr-accent-400;
+            }
+        }
+
+        .signup-btn{
+            width: 50%;
+            position: absolute;
+            bottom: 3em;
+            left: 50%;
+            transform: translateX(-50%) ;
+            transform-style: preserve-3d;
+
+            @function halfNeg($value){
+                @return ($value/2) - math.random($value)
+            };
+            .confetti-container{
+                position: absolute;
+                transform-style: preserve-3d;
+                inset: 50%;
+                opacity: 0;
+                
+                span{
+                    $horizontal-max: 120vw;
+                    $vertical-max: 80vh;
+                    $base-hue: 1;
+                    $hue-variation: 360;
+                    $max-width: 7px;
+                    $min-width: 3px;
+                    $shape: 0.5;
+                    $max-depth: 500px;
+                    $max-spin: 10turn;
+
+                    position: absolute;
+                    width:max(var(--confetti-size), $min-width);
+                    aspect-ratio: 1/2;
+                    border-radius: var(--shape);
+                    background-color: hsl(var(--hue), 100%, 50%);
+                    top:0;
+                    left:0;
+
+                    @for $i from 1 through 100{
+                        &:nth-child(#{$i}){
+                            --shape: #{(math.random() - $shape) * 100vw};
+                            --confetti-size: #{math.random($max-width)}px;
+                            --hue: #{$base-hue - math.random($hue-variation)};
+                            --offsetX: #{halfNeg($horizontal-max)};
+                            --offsetY: #{halfNeg($vertical-max)};
+                            --offsetZ: #{halfNeg($max-depth)};
+                            --spin: #{math.random($max-spin)}turn;
+
+                       }
+                   }
+                 
+                }
+
+                &.explode{
+                    animation: conSettle 10s ;
+                }
+                &.explode > span{
+                    animation: conSpread 10s cubic-bezier(0, 0.75, 1, 1);
+                    
+                }
+
+                
+            }
+            @keyframes conSpread {
+                20%{
+                    translate:0 -70vh;
+                }
+                100%{
+                    translate:0 -70vh;
+                    transform: translateX(var(--offsetX)) 
+                    translateY(var(--offsetY))
+                    translateZ(var(--offsetZ))
+                    rotateX(var(--spin));
+                }
+            }
+            @keyframes conSettle {
+                0%,
+                70%{
+                    opacity: 1;
+                }
+                100%{
+                    opacity: 0;
+                    transform: translateY(80vh);
+                }
+            }
+        }
+    }}
+
+.signin-page{
+    width: 90%;
+    margin-inline: auto;
+    box-shadow:$box-1;
+    border-radius: 5px;
+    margin-top: 3em;
+    padding-block: 5vw;
+    .infor-container{
+        width: 80%;
+        margin-inline: auto;
+        box-shadow: $box-1;
+        border-radius: 5px;
+        padding: 1em;
+        h2{
+            font-size: $fs-head;
+            transform: translateY(-70%);
+            text-align: center;
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+        }
+        .sign-form>*{
+            margin-block: 1em;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            white-space: nowrap;
+            position: relative;
+
+            
+
+            input{
+                width: 100%;
+                margin-left: 0.5em;
+                border: none;
+                outline: none;
+                box-shadow: $box-2;
+                transform: translateY(-15%);
+                padding-left: 0.5em;
+            }   
+        }
+        .sign-form{
+            button{
+                width: 60%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 50%;
+                transform: translateX(-50%);
+            }
+            .user-name .error-span{
+                left: 20em;
+                top: -45%;
+                
+
+            }
+            
+            .password .error-span{
+                left: 12em;
+                top: -45%;
+            }
+            .signup-link{
+                display: flex;
+                flex-direction: row;
+                font-size: $fs-remark-1;
+                align-items: center;
+                justify-content: center;
+                gap: 1em;
+                a{
+                    text-underline-offset: 0.3em;
+                    color: $clr-accent-400;
+                }
+            }
+        }
+       
+    }
+
+}

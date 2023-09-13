@@ -1,0 +1,32 @@
+
+$clr-light-100: hsl(0, 36%, 70%);
+$clr-accent-400: hsl(0, 93%, 68%);
+$clr-dark-700: hsl(0, 6%, 24%);
+$clr-linear-1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+$clr-linear-2: linear-gradient(135deg,  hsl(0, 80%, 86%),  hsl(0, 74%, 74%));
+
+$ff: "Josefin sans", sans-serif;
+
+$fw-3: 300;
+$fw-4: 400;
+$fw-6: 600;
+    
+$fs-remark-1: 0.75rem;
+$fs-primary-2: 1rem;
+$fs-subtitle-4: 1.125rem;
+$fs-title-5: 1.5rem;
+$fs-head: 2rem;
+
+$test: 2px solid red;
+$line: 1px solid hsl(0, 6%, 24%);
+$box-1: 0 0 0.5em 0 hsl(0 6% 24%/0.15);
+$box-2: 3px 3px 5px 0 hsl(0 93% 68%/0.75);
+$trans: all 350ms ease-in-out; 
+
+@mixin flex($direc, $ai, $jc) {
+    display: flex;
+    direction: $direc;
+    align-items: $ai;
+    justify-content: $jc;
+}
+

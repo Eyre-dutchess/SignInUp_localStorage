@@ -1,0 +1,74 @@
+@import "./variabels";
+
+
+.hero-section{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: $clr-linear-1;
+    
+    
+    .hero-img{
+        width: 100%;
+        aspect-ratio: 5/3.5;
+        background-image: url("./hero-mobile.jpg");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: contain;
+    }
+    .hero-content{
+        width: 100%;
+        padding: 1em 5vw;
+        text-align: center;
+        
+        h1{
+            font-size: $fs-head;
+            font-weight: $fw-4;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: $clr-dark-700;
+            line-height: 1.2;
+            margin-block: 0.75em 0.45em;
+
+            span{
+                color: $clr-light-100;
+                font-weight: $fw-3;
+            }
+
+        }
+        .hero-form{
+            width: 75%;
+            height: 2.5em;
+            margin: 2em auto;
+            border: 1px solid $clr-light-100;
+            border-radius: 100vw;
+            display: grid;
+            grid-template-columns: 1fr 3em;
+            align-items: center;
+            position: relative;
+            
+            .hero-btn{
+                width: calc(4em + 1px);
+                height: calc(100% + 2px);
+                border-radius: 0 100vw 100vw 0;
+                background:$clr-linear-2;
+                i{
+                    color: white;
+                    font-size: $fs-primary-2;
+                }
+            }
+            .hero-input{
+                height: 100%;
+                background-color: transparent;
+                border-radius: 100vw 0 0 100vw;
+                border: none;
+                outline: none;
+                padding-left:1em;
+                &::placeholder{
+                    color: $clr-light-100;
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}

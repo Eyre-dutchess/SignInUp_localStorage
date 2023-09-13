@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="signin.js" defer></script>
+</head>
+<body>
+    <div class="signin-page">
+        <div class="infor-container">
+            <h2 class="sign-page-title">Sign In</h2>
+            <div class="form-container" data-infor-container>
+                <form action="" class="sign-form"  data-signin-form>
+                    <div class="user-name" >
+                        <label for="user-name" >User-Name: </label>
+                        <input type="text" id="user-name" data-signin-user-name >
+                        <span class="error-span"></span>
+                    </div>
+                    <div class="email" >
+                        <label for="email" >Email: </label>
+                        <input type="text" data-signin-email id="email" >
+                    </div>
+                    <div class="password">
+                        <label for="password" >Password: </label>
+                        <input type="text" data-signin-password id="password" >
+                        <span class="error-span"></span>
+                    </div>
+                    <button class="signin-btn" type= "submit" data-signin-btn>Sign In</button>
+                    <div class="signup-link">
+                        <p>Don't have an account?</p>
+                        <a href="./index.html">Sign Up</a>
+                    </div>
+                </form>
+            </div>   
+        </div>
+    </div>
+</body>
+</html>
